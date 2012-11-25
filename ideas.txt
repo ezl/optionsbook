@@ -1,0 +1,9 @@
+These two parallel portfolio components have one fundamental difference.  When the actual option was traded, the trade "locks in" a price and therefore implies corresponding underlying volatility for the life of the option. As described in the Portfolio insurance example, changes in the actual, realized volatility can cause the synthetic option price to diverge from the expected valuation.
+
+In our idealized market right now, the marketmaker knows the future volatility of the stock, so we can price the option accordingly and trade the put and the stock at prices that will converge for us. In practice, of course, however, you don't know this, so marketmakers are exposed to the risk of being wrong about future realized volatility.  The more stock the marketmaker is hedging, the greater his need to be "right" about future volatility.
+
+Real-world marketmakers, though, don't want to have to be right. Telling the future is hard and there's an easy way out. By trading an option with similar risk characteristics, you accrue a similar hedging portfolio. In our example, the marketmaker originally bought a put. If the marketmaker sold a similar put (or even a call, actually!), it would create hedging behavior that offsets the hedging behavior of the first transaction, therefore using two offsetting options as hedges and eliminating the need to be "right" about future volatility.
+
+ 
+When a marketmaker buys a put and hedges it with stock, he doesn't need to buy the put back at a cheaper price to make money. The expected future stock hedge already synthetically replicates the repurchase of that put, at a price implied by the volatility of the stock.
+

@@ -1,0 +1,47 @@
+![Coin Toss: Expected Value](images/pricing.cointoss-ev.jpg "Coin Toss: Expected Value")
+![Coin Toss: Tree](images/pricing.cointoss-tree.jpg "Coin Toss: Tree")
+
+![Rolling Dice: Outcomes](images/pricing.rollingdice-outcomes.jpg "Rolling Dice: Outcomes")
+
+![Rolling Dice: Tree](images/pricing.rollingdice-tree.jpg "Rolling Dice: Tree")
+
+![Rolling Dice: Expected Value](images/pricing.rollingdice-ev.jpg "Rolling Dice: Expected Value")
+
+![Possible 5-day price paths](images/pricing.possiblepaths.jpg "Possible 5-day price paths")
+
+![ACME price distribution](images/pricing.ACMEterminaldistribution.jpg "ACME price distribution")
+
+
+
+
+![ACME 51 call payouts](images/pricing.ACME51call.jpg "ACME 51 call payouts")
+
+![Value of the ACME 51 call](images/ACME51callvalue.jpg)
+
+==================
+
+![Call](images/pricing.longcall.jpg "Call")
+
+![call price by strike (zoomed)](pricing.callpricebystrike-zoomed.jpg)
+![Call delta](images/pricing.calldelta.jpg "Call delta")
+
+![Call + hedge = locally flat delta](images/pricing.call+hedge.jpg "call + hedge = locally flat delta")
+
+![Call price by strike](images/pricing.callpricebystrike1.jpg "Call price by strike")
+![Call + hedge = locally flat delta](images/pricing.call+hedge1.jpg "call + hedge = locally flat delta")
+
+![When stock moves, the position makes money](images/pricing.unhedged1a.jpg)
+![When stock moves, the position becomes unhedged](images/pricing.unhedged1b.jpg)
+
+![Rehedge again to be delta neutral](images/pricing.rehedge1.jpg)
+
+![When stock moves, the position makes money again!](images/pricing.unhedged2a.jpg)
+
+![Rehedge again to be delta neutral](images/pricing.rehedge2.jpg)
+
+![When stock moves, the position makes money again!](images/pricing.unhedged3.jpg)
+
+![Profit either way](images/alwaysprofit.jpg "Profit either way")
+
+![Hedging a short option](images/alwaysprofit.jpg "Hedging a short option")
+

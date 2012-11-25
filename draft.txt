@@ -1,0 +1,111 @@
+# Temporary End #
+
+# Temporary End #
+
+# Other Ideas #
+
+* What are the idealized marketplace assumptions?  No transaction costs,
+  normally distributed price returns, constant volatility, european options,
+  no financing or carry costs. What happens if you replace those assumptions
+  with real world constraints
+* Theta
+* Refining the ditch climbing and hill descending to include theta -- you're
+  really just trying to stay ahead of theta -- more like "treading water"
+* variance vs volatility -- linear accrual (why we hedge often)
+* Implied Volatility vs Realized volatility. Define.
+* Order flow -- are options cheap or expensive? if paper is net buyers, why
+  isn't vol expensive? is it? BXM? Is there a trading strategy here by
+  selling options?
+* Put Call Parity
+* Options in practice -- out of the moneys are traded
+* Synthetics
+* Option inputs -- how does changing them affect pnl plots and greeks
+* Greeks -- how does changing them affect pnl plots and greeks
+* Tim's charts of option prices, greeks with changes in vol, time, strike, rates
+* Spreads
+* Other Underlying models (totally random, jump diffusion). How do they
+  affect option prices?
+* When should you early exercise an option?
+* Vol skews -- didn't exist pre 1987. why do they make sense? order flow, vol slider
+* Call skew (commodities) vs put skew (equities) vs currency skews
+* Hedging models -- impact on pricing. real world considerations:
+  transaction costs and crossing spread
+* Vol surface
+* Why Black Scholes is good enough, even though it's wrong (why we don't care about model risk)
+* Model risk -- 2 way flow destroys that
+* Path dependency -- how you get screwed even when you're right about realized vol
+* Using flies to figure out the underlying's terminal price distributions
+* Weirdly annoying real world things, like clearing houses, financing, multi group, and how that affects both pricing and real world trading
+* OCC  -- you don't actually transact with the ACTUAL seller, you don't know who that is
+* Early exercise games: boxes, deep spread dividend plays, open interest plays
+* Selling CME deeps to collect interest (exploiting clearing house trust/inefficiency)
+* Bonus: arb and commodity months:fghjkmnquvxz
+
+
+
+---------------------------------------------------------------
+
+
+# Side Note: Usage Gripe #
+
+"Long" and "short" are adjectives describing the sign (negative or positive)
+of a position.
+
+It is common to use "short" as a verb also, as in "I shorted ABC"/"I'm going to short ABC", or as an adjective "I got short ABC"/"I am short ABC".
+
+"Long" however is generally used as an adjective only, as in "I got long ABC"/"I am long ABC". It is infrequent among traders to hear "long" used as a verb, as in "I longed ABC" or "you should long ABC"
+
+* I shorted ABC -- ok
+* I'm going to short ABC  -- ok
+* I got short ABC -- ok
+* I am short ABC -- ok
+* I'm long ABC -- ok
+* I got long ABC -- ok
+* I longed ABC -- weird, don't say it
+* I'm going to long ABC -- this is weird, don't say it
+* You should Long ABC -- this is weird, don't say it
+
+However, in most cases, for a verb, just say I bought ABC or I sold ABC, unless you are specifically indicating that you put on a negative position.
+
+---------------------------------------------------------------------------------------------
+
+# TEST FORMATTING #
+
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+
+asdfhklajsdhf
+
+## an h2 ##
+
+## another h2 ##
+
+### an h3 ###
+
+#### an h4 ####
+
+##### an h5 #####
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+adfasdf asdfa sdflkhasd fkdkashdkfjh f kasjdhfas
+
+
+##### an h5 #####
+
+#### an h4 ####
+
+#### an h4 ####
+### an h3 ###
+### an h3 ###
+### an h3 ###

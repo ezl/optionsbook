@@ -1,0 +1,6 @@
+## A closer look at N(d1) & N(d2) ##
+
+* traders use delta as probability. its not.
+* Its really close though.
+* they converge as vol -> 0 and diverge in high vol regimes
+

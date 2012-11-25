@@ -1,0 +1,147 @@
+# What Are Options? #
+
+This is a short primer to refresh your memory if it's been a while, but definitely not a substitute for learning options basics.
+
+
+An option is a financial derivative that confers upon the holder the privilege, but not the obligation, to make a future transaction with the counterparty.
+Every options transaction has two parties:
+
+* __A buyer__:  The owner of the option. The buyer has the sole decision of whether or not the option will be exercised.
+* __A seller__: Often referred to as the "writer" of the option. The seller has no say in whether the option will be exercised, but will have to fulfill the obligation detailed by the contract if the option is exercised
+
+An option is described by:
+
+* __Underlying asset__: asset that can be transacted at a future date, for example AAPL stock or bushels of corn) (1)
+* __Expiration date__: date on which the option can be exercised (2)
+* __Strike price__: price at which the underlying will be transacted, if the option is exercised by the buyer
+* __Option type__: call or put
+
+## Option Trade Example ##
+
+### Anatomy of an Option Symbol ###
+
+As an example, let's use the "AAPL 11/23/2012 590C" (pronounced the "Apple Nov five-ninety call"):
+
+![Option name breakdown](images/what_are_options_1.jpg)
+
+1. Generally there is one expiration per month for every underlying asset (3), so the expiration date will be referred to by just the month, and not the day.
+2. Commonly used US exchange-traded equity options are generally American options (AAPL is)
+3. Commonly used US exchange-traded equity options are good for 100 shares of the underlying stock
+4. The actual cash outlay is 100 times the listed option price (100 multiplier)
+5. "C" and "P" are commonly used for "Call" and "Put"
+
+### Sample Trade Mechanics ###
+
+If Jack buys one AAPL 11/23/2012 590C from Jill:
+
+1. Jack will pay Jill a small amount of money today. This is the option price, or premium.  If the price listed on his trading screen or Interactive Brokers account is $1.65, he will actually pay $165.00 (plus fees)
+2. In return, Jill will have promised Jack that he can buy exactly 100 shares AAPL from her at the price of $590 any time on or before 11/23/2012.
+3. Jack isn't incentivized to pay 590 for AAPL at any time on or before 11/23/2012 unless the market stock price is greater than $590 (otherwise he could just pay the market price and get it cheaper)
+
+In the case of a put, Jill will have promised Jack the right to sell her 100 shares of stock at the strike price (and Jill would be obligated to pay that price for 100 shares of stock).
+
+The option can be thought of as creating a private market opportunity where Jack has the ability to execute a trade at a price other than the market price. Since it is a strictly voluntary action on his part, he will compare his private opportunity with the price the market offers and choose the price that benefits him the most.
+
+The privilege of exercising an option belongs solely to the buyer of the option. The seller of the option is subject to the whims of the buyer (but this behavior is generally very predictable and guided by rules for optimal option exercise)
+
+In the early examples, I may only refer to either a put option or a call option. Don't worry about the difference between the two, your goal is first to try to get a deeper, non-technical, intuition of how options work and what makes them tick.  Also, for reasons you'll see later, calls and puts are very similar and there are operations to convert one into the other for very low cost (put call parity).
+
+## Option Expiration Payouts ##
+
+It's useful to think of the option payout as the amount of money you would profit by exercising your option then reversing the stock transaction immediately at the market price.
+
+For example, in the above example where Jack purchased 1 AAPL 590C from Jill, if AAPL stock rallied to 605, Jack would want to exercise the option.
+
+It can be daunting to think of paying 590 * 100 == USD$59,000 to exercise your option.  Instead, think of it as paying 590 and simultaneously selling at 605 (the market price), you're engaging in a transaction where you earn $15.00 for every share of stock you transact.
+
+There are only 4 possible positions you can hold (or any combination of the
+following). For these 4 examples, we'll use the ACME 100 call and ACME 100
+put.
+
+### Long Call ###
+
+A positive number of calls / "you are long calls"
+
+![Long call](images/what_are_options_longcall.jpg)
+
+### Short Call ###
+
+A negative number of calls / "you are short calls"
+
+![Short call](images/what_are_options_shortcall.jpg)
+
+### Long Put ###
+
+A positive number of puts / "you are long puts"
+
+![Long put](images/what_are_options_longput.jpg)
+
+### Short Put ###
+
+A negative number of puts / "you are short puts"
+
+![Short put](images/what_are_options_shortput.jpg)
+
+In each of the graphs:
+
+__The green line is the value that option has at expiration__ at all possible
+stock settlement prices on the expiration date. For example, the "Long Call"
+plot shows the value of the ACME 100 call at various settlements of the
+underlying.  There is a prominent bend in the green line at x==100. To the
+left (at underlying prices less than 100), the slope is 0, meaning the
+payout at expiration of the option is unchanging below underlying prices of
+100. Above stock prices of 100, the expiration payout rises with a slope of
+1, so the call option increases at the same rate as the underlying stock.
+
+__The traded price of the option is the vertical distance ($) between the
+horizontal part of the green line and the x axis (where P&L==0)__. For long
+option positions, this value is a negative number, reflecting the fact that
+the buyer of the option paid money (incurred an outflow of cash) in order to
+acquire the position. Conversely, for negative option positions, the
+horizontal component of the expiration payout is above 0, indicating that
+the seller receives a cash transfusion to acquire the short option position.
+
+The breakeven stock price for a long option is the underlying price at which the
+gains from option offset the price paid for the option. The breakeven stock
+price for a short option is the underlying price at which the losses from
+the option offset the option premium collected at sale time.  This is where
+the P&L plot crosses the x-axis.
+
+__The dotted red line is the option value at a time before the option
+expires.__ In this case, I've arbitrarily chosen 60 days, but the salient
+point here is that there is still uncertainty in the underlying stock's
+settlement price (volatility value).  This value is positive and therefore
+adds additional value to the option beyond the expiration payout value (the
+green line).
+
+This plot is always:
+
+* curved (as long as there is uncertainty in underlying price)
+* monotonically increasing for calls (monotonically decreasing for puts)
+* converges to the expiration plot (the red line) as volatility or time to expiration decreases
+* asymptotically approaches the expiration plot as distance from strike price increases
+
+The total option value can be thought of as the sum of:
+
+* __Intrinsic value__: The "zero vol value", i.e. the amount of money that
+  would be made or lost if the stock never moved again between now and
+  expiration, if the future volatility were zero, or there was no time to
+  expiration remaining (the red line)
+* __Volatility value__: The amount of option value that can be attributed to
+  optionality conferred to the options buyer due to uncertainty in the
+  underlying price between now and the expiration time of the option (the
+  vertical distance between the green line and dotted red line)
+
+---------------------------------------
+Footnotes
+
+(1) Options typically expire into an underlying asset of some sort, typically shares of stock (stock options, like AAPL), futures (S&P500 futures options), or physical goods (commodities like oil, corn, and gold).  For simplicity, I'll often just use stock.  While there are differences between different underlying settlements, we won't address them in this text, and those differences are typically highly specialized and the domain of high volume professionals that don't impact non-professional investors and won't aid in helping you develop INTUITION about option pricing and behavior, which is the explicit goal of this text.
+
+(2) Exercise type (European or American) is defined at the symbol level and implicit in the entire class of options, so rarely explicitly stated on the option.
+
+* European options may be exercised at exactly ONE time: the day of expiration.
+* American options may be exercised at any time before the expiration date.
+* Most US traded listed stocks, and generally the sorts of options that non-professionals trade, are American options.
+* For now, forget about the difference between American and European options. We'll initially begin by discussing European options, then discuss how American options differ at a later time.
+
+(3) not actually true, because of weeklies, dailies, alt settlements, but true enough...

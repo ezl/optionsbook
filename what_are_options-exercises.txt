@@ -1,0 +1,23 @@
+## Exercises ##
+
+To do: Create exercises
+
+Draw a bunch of graphs.
+
+* exercise 1
+* exercise 2
+* exercise 3
+* exercise 4
+* exercise 5
+
+
+Given a graph, fill in the blanks (spot, strike, high or low voltime),
+estimate price and delta at another spot price:
+
+* exercise 1
+* exercise 2
+* exercise 3
+* exercise 4
+* exercise 5
+
+

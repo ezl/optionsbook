@@ -1,0 +1,45 @@
+# Introduction #
+
+Financial derivatives can be confusing and are generally outside the
+expertise of non-professional investors.  Of the many types of financial
+derivatives, options (calls and puts) are the most widely used by non-professional investors.
+
+Even professional investors who don't specialize in options often lack an
+instinctual understanding of how options behave, and as a result, they
+sometimes mischaracterize the risks or use them suboptimally.
+
+__This guide is a primer for beginning to develop intuitions about option
+behavior.__ It is _not_:
+
+* a manual on how to get rich
+* a textbook for options pricing
+* a playbook for trading strategies
+
+The intended audience is technically-minded, non-professional traders who
+already have a basic understanding of what options are and how they work,
+but may lack a deeply-rooted _intuition_ about how options are priced and how
+they can be expected to behave.
+
+My goal is to jumpstart your path to developing these intuitions through
+narratives that make it easy for you to understand and explain options as
+more than just a formula or an expiration P&L diagram.
+
+I will gloss over basic details, and I don't intend to demonstrate how to
+derive pricing (which is a very complex topic). There are already many
+fantastic texts on the subject:
+
+* __Taleb__, _Dynamic Hedging_ -- Taleb's only good book.
+* __Natenberg__, _Options Volatility and Pricing_ -- Widely considered the options bible, but an awful read. (1)  However, this book has probably made more millionaires than any other book ever written. I don't recommend it, but any reference to options starter guides is incomplete without it.
+* __Hull__, _Options, Futures, and Other Derivatives_ -- The _real_ options bible. Must read for any introductory quants and a fantastic reference for practitioners.
+
+Like learning physics, we will begin with simplified, idealized portrayals of the universe (market), then introduce real world complexity.
+
+There are ways where real world practice diverges from what I've written here, but this is, in my opinion, an appropriate starting point for developing an base for how to think about options that can later be adapted for real world trading.
+
+In this guide, we'll focus on American and European calls and puts. A very basic understanding of options is a prerequisite.
+
+-------------------------------------
+Footnotes
+
+(1) _"If one were to buy (sell) a call (put) bull (bear) spread and the underlying were to go up (down) the value of the call (put) bull (bear) spread would increase (decrease) in value." ~The sound of a thousand trading assistants banging their heads on the desk~ Sorry, Shelly._
+

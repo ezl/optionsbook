@@ -1,0 +1,89 @@
+## Understanding Black-Scholes ##
+
+This section requires you to know a little more about options (just what delta is).
+
+The formula for a european call with zero divs and a financing rate of r is:
+
+## C = S * N(d1) - X * e(-rt) * N(d2) ##
+
+My goal is to talk through this so you understand what the formula means.
+
+By definition:
+
+* __N(d1)__ is the delta of the option (dCallPrice/dUnderlyingPrice, or the amount the call will change with a 1 unit move in the underlying)
+* __N(d2)__ is the probability that the option ends up in the money
+* __S__ is the underlying stock price
+* __X__ is the strike price
+* __r__ is the risk-free interest rate
+* __t__ is the time to expiration, measured in years
+
+A general approach to pricing in finance is to answer the question:
+
+* "_what else can i do to achieve the same results?_" (replication), or
+* "_what are the benefits - what are the costs?_" (cashflow equivalency)
+
+We're going to look at value of a Black-Scholes call as the difference
+between the benefits and the costs. The difference between what you get and
+what you give in an instrument is the value of the instrument.
+
+We know that the benefits will outweight the costs, resulting in a positive
+option value.  Vanilla option values can't be negative because you can
+always choose to not exercise it, guaranteeing minimum option value of zero.
+
+__C = S N(d1) - X * e(-rt) N(d2)__ is structured as an equality between C, the
+value of the call, and the difference between 2 expressions:
+
+* S * N(d1)
+* X * e(-rt) * N(d2)
+
+We'll explore each of these in turn.
+
+## What Are The Benefits? ##
+
+You're getting __S * N(d1)__. What does that mean?
+
+What are the benefits of owning a call? __Long calls are long delta__ of the
+underlying (you make money as the underlying goes up, you lose money as the
+underlying goes down).
+
+__How long is a call?__ $DELTA long.  A call gains value at the rate of it's
+delta with respect to changes in the underlying.
+
+Let $DELTA be 0.36. If the underlying goes up 1, you make 36.  A long call
+portfolio at this instant will behave as a portfolio of 36 shares of stock
+(36 shares moving 1 dollar == 1 call moving 36 dollars).
+
+You can think of the minuend of the BS expression as the value of $DELTA
+shares of stock == S * delta == S * N(d1).
+
+## What Is The Cost? ##
+
+The payment implied by the expression is __X * exp(-rt) * N(d2)__.
+
+What is the expected value of the cash outflows?
+
+If the call expires out of the money, we won't exercise it. We won't buy
+stock and we won't lay out any cash.
+
+If this call ends up in the money, we'll have to buy for shares of stock.
+How much will that cost? It'll cost $STRIKE, the agreed upon amount
+specified by the options contract for how much we'll pay for the underlying.
+Let's use $STRIKE = 100 as an example.
+
+What is the expected value of this possible future cash outflow? Consider:
+
+* (A) You'll only exercise this call if it's in the money at expiration (you can buy for better than market price)
+* (B) If you have to pay $100 at expiration, you'll only need to set aside the present value today of $100.
+
+Today the expected value of this potential stock purchase is the present
+value of the strike price (Xe^-rt) multiplied by the probability that this
+exercise event will actually occur (N(d2)).
+
+## How Much Is A Call Worth? ##
+
+A call is like long stock. How much stock? $DELTA stock: S * N(d1)
+
+But you have to pay out cash (in expectation). How much cash? "Present value of strike" * "Probability you'll exercise": X(e^-rt) * N(d2)
+
+__C = S * N(d1) - X(e-rt) * N(d2)__
+

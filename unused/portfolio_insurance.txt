@@ -1,0 +1,20 @@
+
+## Portfolio Insurance ##
+
+
+Imagine you are long 10000 shares of AAPL. Today, that price is 560.91 (congratulations, you're worth at least 5 million bucks, apparently). You're bullish (that means you think AAPL is going up). You are concerned though that AAPL might be making risky decisions and you're not sure what the market impact will be.  You don't want to ride losses down below 500.00 if AAPL starts to tank.
+
+The first way you might approach this would be to sell your shares on a stop below 500. If AAPL trades 499.99, you sell all your shares. If it goes back above 500, you pay 500.01 to buy all your shares back. If AAPL bounces around 500 a bit, you may make a series of tansactions where you sell at 499.99 and buy for 500.01, losing a few cents repeatedly, but that's fine by you. (Jargon: buying high and selling low is called "reverse scalping", in contrast to "scalping", which traders might use when they buy something and sell it at a higher price: "I just scalped a dime on AAPL")
+
+In real life, you might feel your affinity for AAPL waning as AAPL sinks from 560.91 down to 500.00. Instead of dumping and rebuying all 10000 shares of stock at 499.99 and rebuying them all every time you cross the 500.01 threshold, you can create a table of how many shares you'd like to own at each increment between 560 and 500, with a gradual shift from 0 shares at 500 to 10,000 shares at 560.
+
+This ultimately still protects you from falling below a certain minimum portfolio value on the downside and lets you participate in the upside gains if AAPL rallies. As a penalty though, you will lose some money by buying shares at higher prices and selling them at lower prices to match your ownership table.
+
+With increasingly volatile stocks, the stock price will move more, resulting in more re-balancing of your portfolio, and therefore more portfolio value destruction through reverse scalping. With less volatile stocks, less money will be lost on re-balancing.
+
+Correspondingly, think of these re-balancing losses as an insurance premium to maintain a minimum portfolio value.  The market exacts a higher insurance premium for more protection of more volatile stocks. Having insurance for longer periods of time requires a higher total insurance premium as well, because there are more reverse scalping opportunities.
+
+This hedge portfolio behaves much like a put option and demands a cost, much like paying an option premium.  By setting up the rebalancing table with the right proportions at each price level, you can create a series of cashflows that mimic the option.
+
+The key takeaway here is: the exists a series of planned, value-destroying, reverse-scalping, stock transactions you can make over a predetermined period that will approximate the behavior of a put option for a value destruction approaching the cost of the fairly priced option's risk premium.
+

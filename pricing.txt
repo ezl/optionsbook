@@ -1,0 +1,373 @@
+# A Basic Intuition For Option Pricing #
+
+Options novices often just accept that (a) options have value and (b) this
+value can be computed by entering required values into a complex formula.
+This isn't a particularly meaningful or useful understanding of options
+though.
+
+The goal of this chapter is for you to be able to _explain_ to someone else:
+
+* why options have value,
+* how someone could compute that value (though not necessarily be able to compute it)
+* how to know if an option was overpriced or underpriced
+
+There are a few ways to think about option pricing:
+
+* expected value of the option, computed by the probablity of all possible expiration outcomes and their respective payouts
+* value of the continuous hedging process
+* cost of creating a portfolio using other financial instruments that
+  performs identically to the option
+
+The goal here isn't to teach you how to compute the price of an option, but
+rather give you a sense of how to _approach_ options pricing and have you
+understand it in a way that you could recreate it at a later date.
+
+The following are just different narratives for the same phenomena. Hopefully one
+will resonate for you.
+
+## Games of Chance ##
+
+What is the maximum amount you be willing to pay to play any of the following games:
+
+1. We are going to flip a fair coin. Heads, you win $1. Tails, you win nothing.
+2. We are going to roll a two die. If the sum is > 9.5, you win $6. If the sum < 9.5, you pay $0.30
+
+The only right answers are:
+
+1. $0.50
+2. $0.75
+
+Why?
+
+### Flipping a Coin ###
+
+"Heads" and "tails" are equally probable outcomes. Each has a 50% chance of occuring. You have a 50% chance of winning $1.00 and a 50% chance of winning nothing. The expected value (EV) of a single instance of this game is $.50.
+
+![Coin Toss: Expected Value](images/pricing_cointoss-ev.jpg)
+
+Another way of saying that is that there are 2 possible future states of the world, "coin shows heads" and "coin shows tales", each with a 50% probability.
+
+![Coin Toss: Tree](images/pricing_cointoss-tree.jpg)
+
+Before the coin toss occurs, you are at a state of the world described by
+the left node, labelled "pre-flip". This node is connected by lines to two
+possible future states of the world: "heads" or "tails". Each of these lines
+represents a path that _can_ occur, but won't _necessarily_ occur.
+
+The act of flipping the coin causes the description of the world to traverse
+either the upper path or the lower path, ending in one of the nodes to the
+right, and realizing a certain, specific, future state of the world ("heads"
+or tails").
+
+In a single iteration of the game, only one of these events will actually
+occur. The player will either win $1 or $0.
+
+A risk neutral (http://en.wikipedia.org/wiki/Risk_neutral) agent should be
+willing to pay any amount up to $.50, the price at which there would be no
+bias towards gain or loss if this game was repeatedly played for eternity.
+
+### Rolling Dice ###
+
+If 2 die are rolled, what are the possible outcomes? (And which ones add up
+to sums > 9.5?)
+
+As in the fair coin example, let's take the sum of the likelihood of each individual
+outcome times the payout if that outcome should occur.
+
+![Rolling Dice: Tree](images/pricing_rollingdice-tree.jpg)
+
+![Rolling Dice: Expected Value](images/pricing_rollingdice-ev.jpg)
+
+= $ .75
+
+This game is worth up to $.75 for a risk neutral player.
+
+## Option Prices As Expected Value ##
+
+Exploring possible random walks of a stock creates a probability
+distribution of possible "terminal" stock prices at a future snapshot in
+time, say, 5 days from today.
+
+Imagine ACME stock, which is trading $50 right now. At each time step (1 day
+in this example, but can be any arbitrary duration), the stock can either
+move up $1 or down $1:
+
+![Possible 5-day price paths](images/pricing_possiblepaths.jpg)
+
+Tracking all possible paths leads to this expiration date ACME price
+probability distribution:
+
+![ACME price distribution](images/pricing_ACMEterminaldistribution.jpg)
+
+An option has a payout at each of those terminal nodes. As a example we'll
+use the ACME 5-day 51 call (the call option expiring in 5 days which gives
+the owner the right to buy ACME stock for the price of $51):
+
+![ACME 51 call payouts](images/pricing_ACME51call.jpg)
+
+The option value is the sum of the products of the probability and the
+payout at each possible outcome:
+
+![Value of the ACME 51 call](images/pricing_ACME51callvalue.jpg)
+
+The ACME 51 call has an expected value at expiration of 0.4375. The value
+today is the present value of that future expected value.
+
+### Recap ###
+
+Another way to state this is that the option value is the present value of
+the scalar product of the underlying's probability distribution function at
+expiration time and the expiration payout diagram:
+
+__Option Value = Present Value of (
+
+![Underlying's Terminal PDF](images/random_walks_5.jpg)
+
+.
+
+![ACME 51 call payouts](images/pricing_ACME51call.jpg)
+
+)__
+
+Since the call payout is 0 below the strike, we're only concerned with the
+probability function for underlying values greater than the option strike.
+
+For puts, we only need to evaluate underlying values less than the option
+strike.
+
+More volatile names and longer expirations have wider distributions, therefore the positive payout tail increases, and therefore increases the total option value. Only one of those paths will be actualized, so your estimate will never be "right", but over an infinite number of plays, you'll expect to break even
+
+Pros: This is entirely independent of any particular pricing model. You just need to have an opinion about the terminal price distribution, and you can draw any arbitrary terminal price probability distribution. (1)
+
+Cons: This doesn't tell you anything about how to capture the value of the option reliably.
+
+-----------------------------------------------------------
+Footnotes
+
+(1) _In practice, the starting point for discussions about an appropriate distribution describe an idealized Black-Scholes "universe".
+
+You can think of this idealized market in the same way that you think of idealized physics universe assumptions where every object is a point mass, pulleys are frictionless, transfer of energy is efficient, etc. Is it perfect, no. Is it good enough to start, yep._
+
+## Replicating Portfolio ##
+
+Two important features to understand about options are:
+
+1. they change in value as the underlying changes (delta)
+2. the rate at which they change in value changes as the underlying changes (gamma)
+
+One of the basic tenets of option pricing is
+that the underlying price is random and unpredictable, but it follows a
+process that is modelable and can be characterized statistically
+that fact. This fact makes it possible to determine the value of the option
+without knowing the actual future price process.
+
+Since marketmakers don't know what if the underlying is going up or down in
+the next time increment, they want to position themselves so they are indifferent to
+changes in underlying price.
+
+Plotting option price against changing underlying price yields a curved price function like:
+
+![Call price by strike](images/pricing_callpricebystrike.jpg)
+
+This call increase in value without bound as the underlying price increases,
+asymptotically approaching a slope of 1. As the underlying goes down, the call price
+approaches a slope of 0.
+
+A closer look shows that small increases in stock price result in small
+profits in the call value and small decreases in stock price result in small
+losses in the call value.
+
+![Call price by strike - zoomed](images/pricing_callpricebystrike-zoomed.jpg)
+
+The marketmakers goal is to trade an offsetting amount of stock to become indifferent to small up/down movements in stock.
+
+To do this, take the derivative of the change in option value with respect to changes in underlying price at the current stock price (i.e. the instantaneous slope of this option value plot, dCallPrice/dUnderlyingPrice). This slope is the option's delta.
+
+![Call delta](images/pricing_calldelta.jpg)
+
+Accumulate the inverse stock position to cancel out the directional bias.
+
+![Call + hedge = locally flat delta](images/pricing_call_hedge.jpg)
+
+The resulting hedged call portfolio displays a convex function with respect
+to the underlying price.  This curvature is a result of gamma. Gamma is the
+2nd derivative of option price with respective to underlying price,
+d2CallPrice/dUnderlyingPrice2 or equivalently, the first derivative of delta
+with respect to changes in the underlying). Gamma causes this characteristic
+curvature in options payouts, and old-school traders actually refer to the
+greek gamma as "curve" (example: "we're short curve, we need to buy some
+options"). As a result, owning options (having positive numbers of options
+in your portfolio) causes superlinear gains with large movements in underlying behavior.
+
+All options have positive gamma, so if you buy an option, you are always buying gamma (though some options have more gamma than others).
+
+This curvature is important to understanding why options have value, why they are worth more in high volatility regimes, and how the expected rehedging process can tell you how much the option is worth.
+
+## Buying Options: Climbing Out of a Hole ##
+
+![Call price by strike](images/pricing_callpricebystrike1.jpg)
+
+Jill just bought the ACME 100 call, with ACME stock is trading 100, priced on a non-zero volatility, and hopefully it will realize on that same non-zero volatility. How does she capture that with the hedging process?
+
+At purchase time, she immediately hedges her option to look like the risk neutral hedged option above:
+
+![Call + hedge = locally flat delta](images/pricing_call_hedge1.jpg)
+
+Tomorrow morning, she wakes up to find that the underlying stock has moved a
+bit. At ACME's new stock price of 99.17 her position has actually increased
+in value! (Whew, good thing she hedged by selling stock yesterday!)
+
+![When stock moves, the position makes money](images/pricing_unhedged1a.jpg)
+
+Due to gamma (remember, dDelta/dStock), her position has actually accrued a little bit of delta (directional exposure to the underlying stock) on the ride.  As you can see, further decreases in stock price will increase in our position value (and the reverse, increases in stock price will cause our position value to revert to it's prior place on the curve, losing value).  Since her position does better with decreases in the underlying, the delta value of her portfolio is negative. She is "short delta".
+
+![When stock moves, the position becomes unhedged](images/pricing_unhedged1b.jpg)
+
+She'd like to be indifferent again to changes in underlying price, so she hedges it again like we did before buy buying underlying stock. Owning underlying stock means you will make money as the stock increases, so it is "long delta".  She will buy the appropriate amount of stock to exactly offset her existing short delta position.
+
+![Rehedge again to be delta neutral](images/pricing_rehedge1.jpg)
+
+Whew! OK, no big deal. She bought a little stock at the market price of 99.17 so she's "flat delta" or "delta neutral" again.
+
+Of course, she wakes up tomorrow morning to find that stock has changed
+prices again. ACME is trading 98.26.  Again, her position has increased
+in value (it rode the curve up to the left). However, she has a negative
+bias for the market again. Her position will make money with further down
+moves and lose money with upward reversion -- she is short delta.
+
+![When stock moves, the position makes money again!](images/pricing_unhedged2a.jpg)
+
+Following the same pattern of trying to maintain a "delta neutral" portfolio (indifference to directional changes in the underlying), she evaluates the slope of the position at the new stock price, then again buys an offsetting amount of stock, at 98.26
+
+![Rehedge again to be delta neutral](images/pricing_rehedge2.jpg)
+
+The market moves again, as it typically does, and we wake up to a breaking news alert with ACME stock roaring to 101.41!
+
+![When stock moves, the position makes money again!](images/pricing_unhedged3.jpg)
+
+Again, her position value traversed up the curve (this time on the right
+side), both increasing her position value and accumulating a directional
+preference in the market. This time, it is a positive delta position,
+meaning the position has a preference for increases in stock price.  Again,
+she evaluates the slope, then trade an offsetting amount of stock. This time
+it's a sale of stock at 101.41.
+
+By now you've probably noticed that by hedging her position each time, she
+makes money whether the underlying goes up or down.
+
+![Profit either way](images/pricing_alwaysprofit.jpg)
+
+This rehedging process digs us out of the ditch that we got ourselves into
+by paying an option premium to acquire the position. Every time we traverse
+up one side, our position makes a little of that options premium back.  By
+re-hedging the portfolio to be delta neutral, we essentially "lock in" those
+gains.
+
+By pivoting the new value plot at the current stock price so that the
+slope at the stock price is 0 again, the position essentially ratchets
+itself upwards, to recover the options premium outlayed.
+
+----------------------------
+
+__Higher realized volatility, measured in actual changes in the underlying
+price, causes bigger swings and we dig out of the hole faster, recovering the
+premium we paid.__
+
+__Higher implied volatility, an input for the option price, increases option
+price, meaning we have a deeper hole to dig out of, making it harder to
+recover the option premium.__
+
+----------------------------
+
+Consider the buyer of an option who continuously rehedges their portfolio to be delta neutral:
+
+* __Implied Volatility at purchase time == Realized Volatility over the life of the option:__
+    Buyer breaks even -- the volatility was exactly that predicted, and the position exactly
+                         climbs back up to zero profits/losses.
+
+* __Implied Volatility at purchase time < Realized Volatility over the life of the option:__
+    Buyer makes money -- the option was transacted at a price assuming a lower volatility,
+                         so the higher than expected volatility causes the position to ratchet
+                         itself in value beyond the expected amount
+
+* __Implied Volatility at purchase time > Realized Volatility over the life of the option:__
+    Buyer loses money -- the underlying didn't move around as much as expected, not giving the
+                         hedger enough of a chance to capture the benefits of the option curvature.
+
+---------------------------------
+
+## Selling Options: Walking down a Hill ##
+
+The exact opposite process of the climbing out of a hole above describes the hedging behavior for a short option portfolio.  Rebalancing causes continual value degradation.  This value degradation is a function of the volatility of the underlying.  As you approach a continuous hedging model, the sum of the cash flows will approach the Black-Scholes option price.
+
+![Hedging a short option](images/pricing_shorthedging.jpg)
+
+------------------------------------
+
+## How Does The Replicating Portfolio Make Money? ##
+
+Of course, all these rotating P&L charts don't really rotate, though, you're just creating an aggregated stock+option portfolio that behaves as described.
+
+The call is just a call and it changes in value with the market.
+
+Q: So how is Jill digging herself out of the hole, and where is this money coming from?
+A: The stock hedging portfolio.
+
+You should think of this portfolio as being comprised of two parallel
+components: one that contains only options, and another that contains only
+stock.  In the simple case of a single option being bought, then continually rehedged until expiration:
+
+* the options compoment of the portfolio will consist of one short option for the entire duration, and
+* the stock component will have a varying amount of stock that reflects the additive inverse of the option's current sensitivity to changes in underlying price (delta).
+
+As a result, for small changes in underlying price, there's no change in the combined portfolio value. Value changes in the options portfolio cancel those of the stock portfolio.
+
+In the example above, Jill bought the ACME 100 call when ACME was trading 100. That would have had a ~50 delta, so to maintain delta neutrality, her immediate hedge action would have been to sell 50 shares of ACME at 100.00
+
+Over the next 3 hedge actions she:
+
+* bought ACME for  99.17
+* bought ACME for  98.26
+* sold   ACME at  101.41
+
+if this had continued, she would have:
+
+* bought ACME for  98.86
+* bought ACME for  95.79
+* sold   ACME at   98.80
+* sold   ACME at   99.55
+* bought ACME for  99.29
+* sold   ACME at  102.07
+* bought ACME for  98.21
+
+in various amounts that corresponded to the delta of the option at that
+time. At the last transaction, the option would have expired, so she would
+have liquidated her portfolio by buying back all her remaining short shares
+at 98.21. (A portfolio of just stock has a non-zero delta, the offsetting
+stock transaction to reset portfolio to delta exposure to zero is to reverse
+the entire stock position.)
+
+You'll notice that this exhibits a pattern of selling high and buying low.  Long option (and therefore positive gamma) portfolios impose that rehedging behavior on the portfolio maintainer, essentially forcing them to create a series of profitable scalping trades.
+
+Higher volatility stocks result in more profitable cashflows from the hedge portfolio, but also tend to have options that are priced on a higher implied volatility, and therefore are more expensive to purchase.
+
+------------------------------------
+Footnote
+
+_It's a little bit of a lie to imagine that you paid the premium up front and
+are looking to recover it the entire life of the option.  A more accurate
+description is that when you buy the option, your unrealized P&L is 0 --
+assuming you can sell it at nearly the price you bought it.
+
+Throughtout the life of the option, the vol value will decay away because
+time to expiration is decreasing (theta).  So with every step in time, you
+start _sinking_ into the hole.  Underlying movement sweeps you back up to
+the surface.  If you overpaid for the option (overestimated the future
+realized volatility), rate of decay of option value (theta) will overwhelm
+the gains from the hedging process (gamma scalping).
+
+Buying and hedging and option is essentially like treading water, hoping
+that at each time step the underlying will move enough to offset the
+inevitable theta decay.  If the realized vol is less than the implied vol,
+you sink (loss). If the realized vol is greater than the implied vol, you float
+above the surface (profit)._

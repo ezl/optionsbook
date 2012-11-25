@@ -1,0 +1,18 @@
+# Volatility Value #
+
+Not yet written:
+
+* Options have volatility premium
+* Changing strike changes the expiration payout. market price will be higher for lower striked calls (the option to buy cheaper) and higher for higher striked puts (the option to sell at a  higher price):
+* AAPL 560.91 -- the 520 call is worth about 10 more than the 530c. sensible
+  because you get to buy for 10 bucks cheaper -- like paying that difference
+  in advance.  its worth a little LESS than 10 bucks cheaper -- why? (10pt
+  cs)
+* How to read expiration graphs
+* how expiration graphs move (its a mistake to think of option curves as
+  converging to the kink -- they only move vertically -- most option newbs
+  get this wrong.)
+* changing vol == changing time.  impact of changing bs inputs on the option
+  graphs
+
+

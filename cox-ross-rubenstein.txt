@@ -1,0 +1,14 @@
+## Cox, Ross, and Rubenstein -- Binomial Trees ##
+
+Note yet written:
+
+* Demonstration of CRR.
+* Convergence to BS in the limit.
+* can be thought of as a simplification of applying a PDF at every time
+  step.
+* American.
+* early exercise value. when you should exercise.
+* Tree models work with any crazy tree (they just form a terminal price
+  dist)
+* Gives you greeks as well.
+

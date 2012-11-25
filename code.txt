@@ -1,0 +1,23 @@
+# Code Samples #
+
+## Geometric Brownian Motion ##
+
+    # Generate an n-day close-close Geometric Brownian Motion price series
+
+    import numpy as np
+
+    P0 = 100    # Initial price
+    vol = 0.35  # 35% volatility
+    days = 10
+
+    randoms = np.random.randn(days)    # normally distributed random vars
+    randoms *= vol / np.sqrt(252)      # scale to daily expected yields
+    returns = np.exp(randoms)          # convert yields to returns
+    cum_returns = np.cumprod(returns)  # convert to cumulative returns
+    prices = P0 * cum_returns          # generate price series
+
+    # > array([  99.17,   98.26,   101.41,   98.86,
+    #           95.79,   98.80,   99.55 ,  99.29,
+    #           102.07,   98.21])
+
+

@@ -1,0 +1,24 @@
+## What Marketmakers Do ##
+
+This is an important section. This is what options market makers do.
+
+You might think that options market makers make money by buying an option at a lower price, then later selling that option at a higher price, making the bid ask spread. This is partly true. Options market makers are actually in the business of arbitrage. Specifically, they buy an option and synthetically sell the _exact same option_ at the _exact same time_, at different prices. Then they do this thousands of times per day.
+
+Options market makers hedge their exposure to small changes in underlying price by maintaining stock positions whose value changes are expected to cancel out any value changes in the options positions. For now, the important thing to understand here is that:
+
+1. Calls and puts change value as the underlying price changes.
+2. Options marketmakers are NOT in the business of taking directional bets on the market.
+3. In order to remove this exposure to underlying price changes, marketmakers hedge their portfolio with an amount of underlying stock that exactly offsets changes they expect their options portfolio value will have with small underlying price changes.
+
+Because changes in options prices are non-linear with respect to changes in underlying price, marketmakers constantly rebalance the stock component of their portfolio.  The cashflows from the rehedging process over the lifetime of an option are equal in value to the premium of a fairly priced Black-Scholes option.
+
+You should think of this marketmakers portfolio as being comprised of two parallel components: one that contains only options, and another that contains only stock.  In the simple case where the marketmaker buys one put then continually rehedges it until expiration:
+
+* the options compoment of the portfolio will consist of one short option for the entire duration, and
+* the stock component will have a varying amount of stock that reflects the additive inverse of the option's current sensitivity to changes in underlying price (delta).
+
+As a result, for small changes in underlying price, there's no change in the combined portfolio value. Value changes in the options portfolio cancel those of the stock portfolio.
+
+As time passes, the cashflows from the hedging process converge to the value of the option at trade time. By selling the actual options above and buying below the value of options at trade time, then hedging at value, marketmakers profit in an extremely low risk manner. 
+
+

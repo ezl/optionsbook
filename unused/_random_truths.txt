@@ -1,0 +1,7 @@
+Traditional investors (almost everyone) is long the market. This means that if the market goes up, their net worth goes up, and if the market goes down, their net worth goes down.
+
+there are 252 days in an option year, you can use 256 for easy square root
+math
+
+there are 300 days in a bond year
+

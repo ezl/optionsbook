@@ -1,0 +1,31 @@
+# Why do people use options? #
+
+Some investors buy puts as a way to protect their investment. Traditional investors (almost everyone) is long the market. This means that if the market goes up, their net worth goes up, and if the market goes down, their net worth goes down.
+
+Puts act as an insurance policy, creating a floor below which their asset value can not go down.
+
+[stock chart: apple goes up $1, I make $1, apples goes down $1, I lose $1]
+![Alt text](/path/to/img.jpg "Optional title")
+
+[long put chart: no payout above X, 1:1 payout below strike]
+![Alt text](/path/to/img.jpg "Optional title")
+
+Combining the 2 lets you exactly reverse your losses below your strike.
+![Alt text](/path/to/img.jpg "Optional title")
+
+How much should you be willing to pay to have this expiration payout?
+
+The answer is: it depends on the strike below which you want protection.
+
+You can get this terminal payout:
+
+[always win, buy put struck above S]
+![Alt text](/path/to/img.jpg "Optional title")
+
+but you'll have to pay a large amount (in practice, this is generally a losing move, because that put is in the money, illiquid, and you'll pay a larger transaction fee)
+
+[struck exactly at the money, costs X]
+![Alt text](/path/to/img.jpg "Optional title")
+[struck 10 pts below the money, costs a lot less]
+
+
