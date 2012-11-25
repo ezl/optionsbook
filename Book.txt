@@ -1,11 +1,15 @@
 intro.txt
 
-random_walks.txt
 what_are_options.txt
 what_are_options-exercises.txt
 
+random_walks.txt
+
 volatility_value.txt
-pricing.txt
+
+pricing-intro.txt
+pricing-ev.txt
+pricing-replicatingportfolio.txt
 
 pricing_models.txt
 black_scholes.txt

@@ -1,0 +1,28 @@
+# A Basic Intuition For Option Pricing #
+
+Options novices often just accept that (a) options have value and (b) this
+value can be computed by entering required values into a complex formula.
+This isn't a particularly meaningful or useful understanding of options
+though.
+
+The goal of this chapter is for you to be able to _explain_ to someone else:
+
+* why options have value,
+* how someone could compute that value (though not necessarily be able to compute it)
+* how to know if an option was overpriced or underpriced
+
+There are a few ways to think about option pricing:
+
+* expected value of the option, computed by the probablity of all possible expiration outcomes and their respective payouts
+* value of the continuous hedging process
+* cost of creating a portfolio using other financial instruments that
+  performs identically to the option
+
+The goal here isn't to teach you how to compute the price of an option, but
+rather give you a sense of how to _approach_ options pricing and have you
+understand it in a way that you could recreate it at a later date.
+
+The following are just different narratives for the same phenomena. Hopefully one
+will resonate for you.
+
+
