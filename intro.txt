@@ -34,7 +34,7 @@ fantastic texts on the subject:
 
 Like learning physics, we will begin with simplified, idealized portrayals of the universe (market), then introduce real world complexity.
 
-There are ways where real world practice diverges from what I've written here, but this is, in my opinion, an appropriate starting point for developing an base for how to think about options that can later be adapted for real world trading.
+There are ways where real world practice diverges from what I've written here, but this is, in my opinion, an appropriate starting point for developing a base for how to think about options that can later be adapted for real world trading.
 
 In this guide, we'll focus on American and European calls and puts. A very basic understanding of options is a prerequisite.
 

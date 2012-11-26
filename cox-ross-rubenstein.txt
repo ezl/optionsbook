@@ -12,3 +12,43 @@ Note yet written:
   dist)
 * Gives you greeks as well.
 
+
+The first section of pricing, we describe expected value as a way to
+
+As described in the first section on pricing, one approach to options
+valuation is the expected value of all possible future outcomes.
+
+CRR is an extension of this idea.
+
+First describe traditional CRR with binomial tree. Then show how this tree
+can be generalized to use this approach for essentially any model
+
+CRR outline a binomial tree.  This tree generates the possible terminal
+prices.  TAssumptions are constnant volatility.  However, you could
+generalize this approach to have different generators of price behavior at
+each node.  For simplicity
+
+
+Price models. Binomial.
+
+Actually, imagine real world prices.  describe as trinomial, with dt=0. at
+most timesteps, action is "stay the same".  if you could go back and
+characterize this, you'd have a fine trinomial model.  you can even build in
+rules like trending or reversion.
+
+at every node, there's just some function F that tells what the next step is
+going to be.
+
+this brings you a terminal distribution.
+
+pros/cons.  not closed form. convergence to the real world requires many
+steps (200 timesteps==CTC)
+
+Show convergence graph to black scholes
+
+early exercise rules.
+
+show how CRR trees can show you delta, gamma, theta
+
+poor mans vega == run the tree with one vol, run the tree with another vol,
+diff the option price results.

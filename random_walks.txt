@@ -20,8 +20,8 @@ buy and sell shares of AAPL, causing the price to move up and down,
 seemingly at random.
 
 At each moment in the day, the next price that prints on the AAPL ticker may
-be either higher or lower than the current price -- this is unpredictable
-(and not necessarily equally probable)
+be either higher, lower, or the same as than the current price -- this is unpredictable
+(and not necessarily equally probable).
 
 It's useful to imagine the stock price like a ball running through a series
 of pins:
@@ -52,8 +52,8 @@ Now repeat this exercise for increasingly small buckets to get a continuous dist
 
 ![Continuous function of AAPL 1-day price distribution](images/random_walks_5.jpg)
 
-This is what you think AAPL will settle tomorrow, described as a
-__probability density function___ of possible prices for a specific instant
+This is where you think the AAPL stock price will settle tomorrow, described as a
+__probability density function__ of possible prices for a specific instant
 in time in the future.
 
 Now imagine repeating this process for every time step between now and the
@@ -73,7 +73,7 @@ Stocks that move more (higher volatility) and have longer times to expiration ge
 There are many different models for how a stock price "walks". For the
 purposes of developing intuitions about where options get value, they're not
 particularly important. The important thing to note is that there is
-uncertainty in future price that is described as a probability distribution
+uncertainty in the future price, which can be described as a probability distribution
 of possible stock prices at a specific expiration date.
 
 

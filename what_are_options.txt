@@ -3,7 +3,7 @@
 This is a short primer to refresh your memory if it's been a while, but definitely not a substitute for learning options basics.
 
 
-An option is a financial derivative that confers upon the holder the privilege, but not the obligation, to make a future transaction with the counterparty.
+An option is a financial derivative that confers upon the holder the right, but not the obligation, to make a future transaction with the counterparty.
 Every options transaction has two parties:
 
 * __A buyer__:  The owner of the option. The buyer has the sole decision of whether or not the option will be exercised.
@@ -12,7 +12,7 @@ Every options transaction has two parties:
 An option is described by:
 
 * __Underlying asset__: asset that can be transacted at a future date, for example AAPL stock or bushels of corn) (1)
-* __Expiration date__: date on which the option can be exercised (2)
+* __Expiration date__: last date on which the option can be exercised (2)
 * __Strike price__: price at which the underlying will be transacted, if the option is exercised by the buyer
 * __Option type__: call or put
 
@@ -32,17 +32,79 @@ As an example, let's use the "AAPL 11/23/2012 590C" (pronounced the "Apple Nov f
 
 ### Sample Trade Mechanics ###
 
-If Jack buys one AAPL 11/23/2012 590C from Jill:
+If Bob buys one AAPL 11/23/2012 590C from Sue:
 
-1. Jack will pay Jill a small amount of money today. This is the option price, or premium.  If the price listed on his trading screen or Interactive Brokers account is $1.65, he will actually pay $165.00 (plus fees)
-2. In return, Jill will have promised Jack that he can buy exactly 100 shares AAPL from her at the price of $590 any time on or before 11/23/2012.
-3. Jack isn't incentivized to pay 590 for AAPL at any time on or before 11/23/2012 unless the market stock price is greater than $590 (otherwise he could just pay the market price and get it cheaper)
+1. Bob will pay Sue a small amount of money today. This is the option price,
+   or premium.  If the price listed on his trading screen or Interactive
+   Brokers account is $1.65, he will actually pay $165.00 (plus fees).
+2. In return, Sue will have promised Bob that he can buy exactly 100 shares
+   AAPL from her at the price of $590 any time on or before 11/23/2012.
+3. Bob isn't incentivized to pay 590 for AAPL at any time on or before
+   11/23/2012 unless the market stock price is greater than $590 (otherwise
+   he could just pay the market price and get it cheaper).
+4. If the publicly traded price of AAPL on 11/23 is 610, Bob would
+   benefit by exercising his option. He would pay 590 on 100 shares of
+   AAPL, 20 points cheaper than the market price.
+5. Sue would be obligated to sell at this price, a 20 point loss to what
+   she could have achieved by selling to the broad market.
+6. Bob is the only person in this transaction who has the power to
+   decide whether this option is exercised (he probably should, but it
+   is possible to choose not to exercise).
+7. If Bob exercises the call , Sue _must_ deliver 100 shares of AAPL for the total
+   price of 100 * 590 == 59,000 -- regardless of the current market price
+   for AAPL.
+8. In principle, it possible for Bob to exercise his 590 call even if
+   the AAPL underlying was trading below 590. If AAPL were trading a lower
+   price, like 550, Bob would be
+   voluntarily paying 590 for the AAPL call via option exercise, despite the
+   fact the fact that he could buy it in the marketplace for 550. He would
+   be losing out on $40/share for 100 shares, effectively throwing away
+   $4000. This would be stupid, and it never happens, but it is _possible_.
 
-In the case of a put, Jill will have promised Jack the right to sell her 100 shares of stock at the strike price (and Jill would be obligated to pay that price for 100 shares of stock).
+For clarity, and at the risk of repetitiveness, I'll repeat this description
+for an example where Bob buys one AAPL 11/23/2012 590C from Sue:
 
-The option can be thought of as creating a private market opportunity where Jack has the ability to execute a trade at a price other than the market price. Since it is a strictly voluntary action on his part, he will compare his private opportunity with the price the market offers and choose the price that benefits him the most.
+1. Bob will pay Sue a small amount of money today. This is the option price,
+   or premium.  If the price listed on his trading screen or Interactive
+   Brokers account is $2.19, he will actually pay $219.00 (plus fees).
+2. In return, Sue will have promised Bob that he can sell exactly 100 shares
+   AAPL to her at the price of $550 any time on or before 11/23/2012.
+3. Bob isn't incentivized to sell AAPL at 550 at any time on or before
+   11/23/2012 unless the market stock price is less than $550 (otherwise
+   he could just sell it to the best bid in the market to get a better price).
+4. If the publicly traded price of AAPL on 11/23 is 530, Bob would
+   benefit by exercising his put. He would sell 100 shares of AAPL to Sue at
+   550, 20 points higher than the market price
+5. Sue would be obligated to buy at this price, a 20 point loss to what
+   she could have achieved by buying AAPL from the public markets (530 * 100
+   vs 550 * 100).
+6. Bob is the only person in this transaction who has the power to
+   decide whether this option is exercised (he probably should, but it
+   is possible to choose not to exercise).
+7. If Bob exercises the call, Sue _must_ pay him 100 * 550 == 55,000 in
+   return for 100 shares of AAPL -- regardless of the current market price
+   for AAPL.
+8. In principle, it possible for Bob to exercise his 550 put even if
+   the AAPL underlying was trading above 550. If AAPL were trading a higher
+   price, like 580, Bob is
+   voluntarily selling AAPL stock at  550 via option exercise, despite the
+   fact the fact that he could sell it in the marketplace at 580. He would
+   be losing out on $30/share for 100 shares, effectively throwing away
+   $3000. This would be stupid, and it never happens, but it is _possible_.
 
-The privilege of exercising an option belongs solely to the buyer of the option. The seller of the option is subject to the whims of the buyer (but this behavior is generally very predictable and guided by rules for optimal option exercise)
+The rules and specific mechanics of these exercise transactions are governed
+through networks of brokerage firms, exchanges, and a governing body called
+the Options Clearing Corporation (optionsclearing.com), so Bob and Sue never
+actually get directly in contact with one another, and there is virtually no
+risk to Bob that Sue will be unable or unwilling to fulfil her obligation if
+the option is exercised.
+
+The privilege of exercising an option belongs solely to the buyer of the
+option. The seller of the option is subject to the whims of the buyer.
+However, this behavior is generally very predictable and guided by rules for
+optimal option exercise (how to maximize expected value via exercise), so
+professional options traders generally are always aware of when this will
+happen and can prepare accordingly.
 
 In the early examples, I may only refer to either a put option or a call option. Don't worry about the difference between the two, your goal is first to try to get a deeper, non-technical, intuition of how options work and what makes them tick.  Also, for reasons you'll see later, calls and puts are very similar and there are operations to convert one into the other for very low cost (put call parity).
 
@@ -50,7 +112,7 @@ In the early examples, I may only refer to either a put option or a call option.
 
 It's useful to think of the option payout as the amount of money you would profit by exercising your option then reversing the stock transaction immediately at the market price.
 
-For example, in the above example where Jack purchased 1 AAPL 590C from Jill, if AAPL stock rallied to 605, Jack would want to exercise the option.
+For example, in the above example where Bob purchased 1 AAPL 590C from Sue, if AAPL stock rallied to 605, Bob would want to exercise the option.
 
 It can be daunting to think of paying 590 * 100 == USD$59,000 to exercise your option.  Instead, think of it as paying 590 and simultaneously selling at 605 (the market price), you're engaging in a transaction where you earn $15.00 for every share of stock you transact.
 
@@ -126,7 +188,7 @@ The total option value can be thought of as the sum of:
 * __Intrinsic value__: The "zero vol value", i.e. the amount of money that
   would be made or lost if the stock never moved again between now and
   expiration, if the future volatility were zero, or there was no time to
-  expiration remaining (the red line)
+  expiration remaining (the green line)
 * __Volatility value__: The amount of option value that can be attributed to
   optionality conferred to the options buyer due to uncertainty in the
   underlying price between now and the expiration time of the option (the

@@ -1,9 +1,12 @@
 ## Games of Chance ##
 
-What is the maximum amount you be willing to pay to play any of the following games:
+What is the maximum amount you would be willing to pay to play each of the
+following games:
 
-1. We are going to flip a fair coin. Heads, you win $1. Tails, you win nothing.
-2. We are going to roll a two die. If the sum is > 9.5, you win $6. If the sum < 9.5, you pay $0.30
+1. We are going to flip a fair coin. Heads, you win $1. Tails, you win
+   nothing.
+2. We are going to roll two 6-sided dice. If the sum is > 9.5, you win $6. If the
+   sum < 9.5, you pay $0.30
 
 The only right answers are:
 
