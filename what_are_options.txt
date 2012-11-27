@@ -62,7 +62,7 @@ If Bob buys one AAPL 11/23/2012 590C from Sue:
    $4000. This would be stupid, and it never happens, but it is _possible_.
 
 For clarity, and at the risk of repetitiveness, I'll repeat this description
-for an example where Bob buys one AAPL 11/23/2012 590C from Sue:
+for an example where Bob buys one AAPL 11/23/2012 550P from Sue:
 
 1. Bob will pay Sue a small amount of money today. This is the option price,
    or premium.  If the price listed on his trading screen or Interactive
@@ -81,7 +81,7 @@ for an example where Bob buys one AAPL 11/23/2012 590C from Sue:
 6. Bob is the only person in this transaction who has the power to
    decide whether this option is exercised (he probably should, but it
    is possible to choose not to exercise).
-7. If Bob exercises the call, Sue _must_ pay him 100 * 550 == 55,000 in
+7. If Bob exercises the put, Sue _must_ pay him 100 * 550 == 55,000 in
    return for 100 shares of AAPL -- regardless of the current market price
    for AAPL.
 8. In principle, it possible for Bob to exercise his 550 put even if
